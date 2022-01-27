@@ -1,0 +1,17 @@
+it('Template Module', function () {
+
+    cy.get(':nth-child(6) > .ui > .ag-top-toolbar__menu__item__link').click()
+    cy.wait(3000)
+    cy.get('[href="#/settings/templates"]').click()
+    cy.wait(3000)
+    cy.get('.ag-flex.col-v-2 > .button').click({ force: true })
+    cy.wait(6000)
+    //cy.get('.ui.form.col-v-5').click({multiple:true})
+    //cy.get('.field.required>#title-email-template-form-drawer').type('Test Template')
+    cy.get("div[name='title'] > input[name='title']").type('Test')
+    cy.get("div[name='subject'] > div > .ql-container.ql-snow.quillEditor > .ql-blank.ql-editor").type('Hello')
+    cy.get("div[name='subject'] > div > .ag-flex.ql-snow.ql-toolbar > span > span[role='button']").click()
+    cy.get('#ql-picker-options-0 > [data-value="client_first_name"]').click()
+    cy.get("div[name='content'] > div > .ql-container.ql-snow.quillEditor > .ql-blank.ql-editor").type('Test purpose')
+    cy.get("[class='col-v-5 ag-flex ag-justify-end'] .blueButton").click()
+})
